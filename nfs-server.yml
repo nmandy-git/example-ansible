@@ -7,7 +7,7 @@
     apt:
       name: "*"
       state: latest
-    tags: update-os  
+    tags: update-os
   - name: Install tool-kit
     apt:
       name: "{{ packages }}"
@@ -18,17 +18,18 @@
       - tmux
       - nfs-kernel-server
   - name: Creating folder for share
-    file: /var/share
-    state: directory
-    owner: nobody
-    group: nogroup
-    mode: 0777
+    file:
+      path: /var/share/
+      state: directory
+      owner: nobody
+      group: nogroup
+      mode: 0777
   - name: Updating exports
     lineinfile:
       path: /etc/exports
       line: /share *(rw,insecure,no_subtree_check,no_root_squash)
       state: present
   - name: Starting the nfs-server
-    service: 
-       name: nfs-kernel-server
-       state: started
+    service:
+      name: nfs-kernel-server
+      state: started
