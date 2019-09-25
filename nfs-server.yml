@@ -27,7 +27,7 @@
   - name: Updating exports
     lineinfile:
       path: /etc/exports
-      line: /share *(rw,insecure,no_subtree_check,no_root_squash)
+      line: "/var/share *(rw,insecure,no_subtree_check,no_root_squash)"
       state: present
   - name: Starting the nfs-server
     service:
