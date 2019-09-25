@@ -17,7 +17,6 @@
       - mosh
       - tmux
       - nfs-kernel-server
-      - nfs-common
   - name: Creating folder for share
     file: /var/share
     state: directory
